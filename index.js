@@ -1,28 +1,28 @@
-let screen= document.getElementById('screen');
-buttons = document.querySelectorAll('button');
-let screenValue = '';
-for(item of buttons){
-    item.addEventListener('click', (e)=>{
-        buttonText = e.target.innerText;
-        console.log('Button text is ', buttonText);
-        if(buttonText=="x"){
-            buttonText = '*';
-            screenValue  += buttonText;
-            screen.value  = screenValue;
-            
+let screen = document.getElementById("screen");
+buttons = document.querySelectorAll("button");
+const handleError = (value) => {
+  try {
+    return eval(value);
+  } catch (err) {
+    return "Syntax Error";
+  }
+};
+for (item of buttons) {
+  item.addEventListener("click", (e) => {
+    buttonText = e.target.innerText;
+    let result = handleError(screen.value);
+    if (buttonText === "x") {
+      buttonText = "*";
+    } else if (buttonText === "C") {
+      screen.value = "";
+    } else {
+      if (screen.value !== "Syntax Error") {
+        if (buttonText === "=") {
+          screen.value = result;
+        } else {
+          screen.value += buttonText;
         }
-        else if (buttonText =='C'){
-            screenValue = "";
-            screen.value  = screenValue;
-        }
-        else if (buttonText =='='){
-            screen.value = eval(screenValue);
-        }
-        else{
-            screenValue += buttonText;
-            screen.value = screenValue;
-        }
-
-
-    })
+      }
+    }
+  });
 }
