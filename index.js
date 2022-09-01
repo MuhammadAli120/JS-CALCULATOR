@@ -17,9 +17,9 @@ for (item of buttons) {
       screen.value = "";
     } else {
       if (screen.value !== "Syntax Error") {
-        if (buttonText === "=") {
+        if (buttonText === "=" && screen.value !== "") {
           screen.value = result;
-        } else {
+        } else if (buttonText !== "=") {
           screen.value += buttonText;
         }
       }
