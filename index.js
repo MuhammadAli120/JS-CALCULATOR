@@ -15,7 +15,9 @@ for (item of buttons) {
       buttonText = "*";
     } else if (buttonText === "C") {
       screen.value = "";
-    } else {
+    }else if (buttonText === "CE") {
+      screen.value = screen.value.substring(0, screen.value.length - 1);
+    }else {
       if (screen.value !== "Syntax Error") {
         if (buttonText === "=" && screen.value !== "") {
           screen.value = result;
