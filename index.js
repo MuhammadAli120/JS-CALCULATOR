@@ -11,7 +11,7 @@ for (item of buttons) {
   item.addEventListener("click", (e) => {
     buttonText = e.target.innerText;
     let result = handleError(screen.value);
-    if (buttonText === "x") {
+    if (buttonText =="x") {
       buttonText = "*";
       screenValue += buttonText;
       screen.value = screenValue
