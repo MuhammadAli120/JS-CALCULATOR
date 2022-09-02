@@ -13,6 +13,7 @@ for (item of buttons) {
     let result = handleError(screen.value);
     if (buttonText === "x") {
       buttonText = "*";
+      screen.value += buttonText;
     } else if (buttonText === "C") {
       screen.value = "";
     }else if (buttonText === "CE") {
